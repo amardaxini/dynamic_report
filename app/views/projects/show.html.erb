@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p class="default-show">
+  <strong>Name: </strong>
+  <%= @project.name %>
+  <div style="padding:10px;">
+    <strong>Start date:</strong>
+    <%= @project.start_date %>
+    <span style="float:right">
+        <strong>End date:</strong>
+      <%= @project.end_date %>
+    </span>
+   </div>
+
+</p>
+
+<p class="default-show">
+  <strong>Description:</strong>
+    <p class="default-show">
+      <%= @project.description %>
+    </p>
+</p>
+<div class="listing">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>Owner</th>
+        <th width="30"></th>
+       </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+
+        <tr>
+          <td><%= link_to  task.name,project_task_path(@project,task) %></td>
+          <td><%= task.description %></td>
+          <td><%= task.start_date %></td>
+          <td><%= task.owner.name rescue ""%></td>
+          <td><%= link_to image_tag('edit_10.png'), edit_project_task_path(@project,task) %>
+       <%= link_to image_tag('delete_10.png'), project_task_path(@project,task), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5"><%= link_to "Add task",new_project_task_path(@project) %></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <%= stylesheet_link_tag "pdf",:media => 'print'%>
+
+  <style>
+      /* PAGE, HEADERS, FOOTERS */
+      /*.header { position: running(header) }*/
+      @page {
+          size: A4;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+          margin: 8% 5% 6% 6%;
+          counter-increment: page;
+      @top-left {
+      font-family : Arial, Helvetica, sans-serif;
+          font-size: 11px;
+          text-align: left;
+          content: "Resume" ;
+          vertical-align: bottom;
+          padding: 3px;
+      }
+      @top-right {
+        font-family : Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        text-align: right;
+        content: "<%= @report.project.name%>" ;
+        vertical-align: bottom;
+        padding: 3px;
+      }
+      @bottom-left {
+        font-family : Arial, Helvetica, sans-serif;
+        font-size: 9px;
+        content: "Report generated on <%=Time.now.to_s(:long) %>";
+        vertical-align: top;
+        padding: 3px;
+      }
+      @bottom-right {
+        font-family : Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        content: "Page " counter(page) " of " counter(pages);
+        vertical-align: top;
+        padding: 3px;
+        text-align: right;
+      }
+      }
+
+      /* BODY CSS */
+      body {
+          font-size: 13px;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color:white;
+      }
+
+      h2 { padding-top: 10px; }
+
+
+      p.small-text { font-size: 11px; }
+
+      div.graph { text-align: center;  }
+
+
+      .page_break{page-break-after:always}
+      p{font-size:13px}
+
+
+  </style>
+</head>
+<body>
+<%= @report_content.html_safe %>
+</body>
+</html>

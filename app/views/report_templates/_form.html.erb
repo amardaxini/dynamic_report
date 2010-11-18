@@ -1,0 +1,37 @@
+ <%= stylesheet_link_tag 'markitup/sets/html/style' %>
+  <%= stylesheet_link_tag  'markitup/skins/markitup/style' %>
+
+<%= form_for(@report_template,:html=>{:class=>'data-form'}) do |f| %>
+    <% if @report_template.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@report_template.errors.count, "error") %> prohibited this report_template from being saved:</h2>
+
+          <ul>
+            <% @report_template.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :template_name %><br />
+      <%= f.text_field :template_name %>
+    </div>
+    <div class="field">
+      <%= f.label :template_content %><br />
+      <%= f.text_area :template_content,:rows=>30,:cols=>800,:class=>'mark_it_up_content' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+<% content_for :javascripts do %>
+    <%= javascript_include_tag 'jquery.markitup' %>
+     <%= javascript_include_tag 'set_html' %>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".mark_it_up_content").markItUp(mySettings);
+        });
+    </script>
+<% end %>

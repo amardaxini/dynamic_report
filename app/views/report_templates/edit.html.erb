@@ -1,0 +1,9 @@
+<h1>Editing report_template</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @report_template %> |
+<%= link_to 'Back', report_templates_path %>
+<% content_for :sidebar do %>
+    <%= render :partial=>"help" %>
+<% end %>

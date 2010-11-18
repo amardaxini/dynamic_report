@@ -1,0 +1,28 @@
+<% content_for :title do%>
+ Projects
+<% end %>
+<div class="listing">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th width="30"></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%=link_to project.name,project_path(project) %></td>
+    <td><%= project.description.truncate(60) %></td>
+    <td><%= project.start_date %></td>
+    <td><%= project.end_date %></td>
+    <td><%= link_to image_tag('edit_10.png'), edit_project_path(project) %>
+    <%= link_to image_tag('delete_10.png'), project, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New Project', new_project_path %>

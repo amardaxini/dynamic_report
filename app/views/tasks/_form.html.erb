@@ -1,0 +1,55 @@
+<%= form_for([@project,@task],:html=>{:class=>'data-form'}) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%#= f.date_select :start_date %>
+    <%= f.text_field :start_date,:id=>"start_date" %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.text_field :end_date,:id=>"end_date" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "user" %><br />
+    <%= f.collection_select :user_id,User.all,:id,:name,{},:class=>'flexselect' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+    <%= stylesheet_link_tag 'flexselect' %>
+<%= content_for :javascripts do%>
+
+    <%= javascript_include_tag 'jquery-ui' %>
+    <%= javascript_include_tag 'liquidmetal' %>
+    <%= javascript_include_tag 'jquery.flexselect' %>
+
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+         $("select.flexselect").flexselect();
+        $("#start_date" ).datepicker();
+        $("#end_date" ).datepicker();
+    });
+    </script>
+<% end %>

@@ -1,0 +1,22 @@
+<div>
+  <%= link_to "Pdf",generate_pdf_report_path(@report,:format=>:pdf) %>|
+  <%= link_to "Html",generate_pdf_report_path(@report,:format=>:pdf,:html_view=>true) %>
+</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Report name:</strong>
+  <%= @report.report_name %>
+</p>
+
+<p>
+  <strong>Report content:</strong>
+  <br />
+  <%=raw @report.report_content %>
+
+</p>
+<%= draw_task_status_graph_for_pdf(Project.first)%>
+
+<%#= image_tag "/tmp/Test.png" %>
+ <%#= image_tag(display_image_path(:file_name=>"/tmp/Test.png")) %>
+<%= link_to 'Back', reports_path %>

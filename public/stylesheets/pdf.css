@@ -1,0 +1,27 @@
+div.listing {
+    padding: 5px 20px 10px 10px;
+    font-size: 0.9em;
+}
+
+div.listing table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+div.listing table tr:hover { background-color: #E7EEF4; }
+div.listing table tfoot { font-size: 0.9em; color: #666; }
+div.listing table tfoot td { border: 0; }
+div.listing table tfoot tr:hover { background-color: transparent; }
+
+div.listing table th {
+    padding: 5px;
+    background-color: #E7EEF4;
+    border: 1px solid #DDD;
+}
+div.listing table td {
+    border: 1px solid #DDD;
+    padding: 3px 5px;
+    display:table-cell;
+}

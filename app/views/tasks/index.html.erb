@@ -1,0 +1,51 @@
+<% content_for :title do %>
+    Tasks
+<% end %>
+
+<div style="float:right;padding:5px 20px">
+  <% form_tag(task_list_path(),:method=>"get",:id=>'project_list_form') do %>
+      <%= select_tag :project_id, options_for_select(@projects.collect{|p| [p.name,p.id]},@project_id),{:include_blank => true}%>
+  <% end %>
+</div>
+<div class="listing">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>User</th>
+      <th>Status</th>
+      <th width="30"></th>
+    </tr>
+
+    <% @tasks.each do |task| %>
+        <tr id="<%= dom_id(task)%>">
+          <td><%=link_to  task.name,project_task_path(task.project,task) %></td>
+          <td><%= task.description.truncate(60) %></td>
+          <td><%= task.start_date %></td>
+          <td><%= task.end_date %></td>
+          <td><%= task.user.name rescue "" %></td>
+          <td id="task_status_<%=task.id %>"><%= link_to task.status,update_task_status_project_task_path(task.project,task),:remote=>true %></td>
+          <td><%= link_to image_tag('edit_10.png'), edit_project_task_path(task.project,task) %>
+            <%= link_to image_tag('delete_10.png'), project_task_path(task.project,task), :confirm => 'Are you sure?', :method => :delete,:remote=>true,:class=>'delete-task' %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<br />
+<% if @project %>
+    <%= link_to 'New Task', new_project_task_path(@project) %>
+<% end %>
+<% content_for :javascripts do %>
+
+    <script type="text/javascript">
+        $('.delete-task').bind('ajax:success', function() {
+            $(this).closest('tr').fadeOut();
+        });
+
+        $("#project_id").live("change",function(){
+            $("#project_list_form").submit();
+        });
+    </script>
+<% end %>

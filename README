@@ -1,0 +1,9 @@
+ This is demo app that shows how we can generate report as per different user views.
+ It uses liquid,rchart,acts_as_flying_saucer
+  
+ 1) bundle install
+ 2) Edit config/database.yml
+ 3) Make sure java on path
+ 4) rake db:create
+ 5) rake db:migrate
+

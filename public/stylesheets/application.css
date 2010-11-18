@@ -1,0 +1,236 @@
+body {
+    background-color:#354056;
+    font-family: "Lucida Grande","Lucida Sans Unicode",Verdana, Helvetica, Arial,sans-serif;
+    text-align: center;
+}
+/*Menubar */
+div.header{
+    height:105px;
+    background-color: #3e3e3e;
+    color:#fff;
+}
+div.login-bar-left{
+    padding:10px 0;
+
+}
+div#login-bar-right{
+    text-align:right;
+    padding-top:10px;
+
+}
+
+div#login-bar-right ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+div#login-bar-right li
+{
+
+}
+div#login-bar-right li a
+{
+   float: right;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color:#fff;
+    margin:0 10px 0 0px;
+}
+
+div.main-nav{
+    margin-top:20px;
+    height:49px;
+    background-image: url(/images/menu_bg.png);
+    background-repeat: repeat;
+}
+
+div.main-nav ul{
+    margin: 0;
+    padding: 0 0 0 30px;
+    list-style: none;
+}
+div.main-nav ul li {
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+}
+div.main-nav ul li a {
+    position: relative;
+    float: left;
+    width: 103px;
+    display: block;
+    height: 24px;
+    padding: 6px 0 0 0;
+    margin-right: 10px;
+    margin-top:12px;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+    color: #21272d;
+    font-weight: bold;
+    outline: none;
+}
+div.main-nav li a:hover,  div.main-nav  li .current {
+    color: #fff;
+    background: url(/images/menu_hover.png);
+    background-repeat: repeat-x;
+}
+/* content */
+div#wrapper{
+
+}
+div#content{
+    background-color:#fff;
+
+}
+h1.page-title{
+    font-size: 1.3em;
+    padding: 5px 0 10px 10px;
+    margin: 0;
+}
+div.flash.error, div.flash.warning {
+  background-color: #ffcccc;
+  border-color: #ff9999;
+}
+div#content div.listing {
+    padding: 5px 20px 10px 10px;
+    font-size: 0.9em;
+}
+
+div#content div.listing table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+div#content div.listing table tr:hover { background-color: #E7EEF4; }
+div#content div.listing table tfoot { font-size: 0.9em; color: #666; }
+div#content div.listing table tfoot td { border: 0; }
+div#content div.listing table tfoot tr:hover { background-color: transparent; }
+
+div#content div.listing table th {
+    padding: 5px;
+    background-color: #E7EEF4;
+    border: 1px solid #DDD;
+}
+
+div#content div.listing table td {
+    border: 1px solid #DDD;
+    padding: 3px 5px;
+    display:table-cell;
+}
+
+div#content div.listing table td span { word-wrap: break-word; display: inline; }
+div#content div#pagination div.pagination { text-align: right; padding: 10px 20px 0 0 }
+
+/* FORMS */
+
+div#content form.data-form {
+    margin: 0;
+    padding: 0 20px 20px 20px;
+}
+
+div#content form.data-form h3 {
+    padding: 25px 0 3px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-top: 1px solid #DDD;
+}
+
+div#content form.data-form h3 span.module_status {
+    display: block;
+    float: right;
+    text-transform: none;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+div#content form.data-form h3.first { border: 0; margin: 0;}
+div#content form.data-form h4 { margin: 0; padding: 10px 0 0 0; }
+div#content form.data-form p, div#content form.data-form div { margin:0; padding: 10px 0 0 0;}
+
+div#content form.data-form input[type=text],
+div#content form.data-form textarea,
+div#content form.data-form input[type=password]
+{
+    padding: 3px;
+    font-size: 1.05em;
+    color: #444;
+}
+
+div#content form.data-form input[type=text],div#content form.data-form input[type=password]{  width: 50%; }
+div#content form.data-form textarea { width: 98%; height: 80px; }
+
+div#content form.data-form .help {
+    font-size: 0.87em;
+    line-height: 1.4em;
+    color: #777;
+}
+
+div#content form.data-form p.help { margin: 0; padding: 5px 0; }
+div#content form.data-form p.submit {
+    margin-top: 20px;
+    border-top: 1px solid #DDD;
+}
+
+div#content form.data-form input[type=submit] {
+    font-size: 1.2em;
+    padding: 10px;
+    border-top    : 1px solid #BBB;
+    border-left   : 1px solid #BBB;
+    border-right  : 1px solid #666;
+    border-bottom : 1px solid #666;
+    background-color: #DDD;
+}
+
+div#content form.data-form input[type=submit]:active {
+    border-top    : 1px solid #666;
+    border-left   : 1px solid #666;
+    border-right  : 1px solid #BBB;
+    border-bottom : 1px solid #BBB;
+    background-color: #EEE;
+}
+
+.default-show{
+    padding:10px;
+}
+.filter-dont-show{
+    display:none;
+}
+
+/* footer*/
+{
+margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+div.every-thing {
+
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+/*    -webkit-box-shadow: 8px 0px 10px #000,-8px 0px 10px #000;
+    -moz-box-shadow: 8px 0px 10px #000,-8px 0px 10px #000;
+    box-shadow: 8px 0px 10px #000,-8px 0px 10px #000;*/
+    margin: 0 auto -30px ; /* the bottom margin is the negative value of the footer's height */
+    background-color:white;
+
+}
+
+div#footer,div.push {
+    height: 30px; /* .push must be the same height as .footer */
+}
+div#footer{
+   
+    background-color:#3e3e3e;
+    color:#fff;
+    padding-left:10px;
+}
+
+div#footer p,div#footer a{
+    color:#fff;
+}

@@ -1,0 +1,23 @@
+<% content_for  :title do %>
+    Report Templates
+<% end %>
+
+<div class="listing">
+  <table>
+    <tr>
+      <th>Template name</th>
+      <th width="30"></th>
+    </tr>
+
+    <% @report_templates.each do |report_template| %>
+        <tr>
+          <td><%= link_to report_template.template_name,report_template %></td>
+           <td><%= link_to image_tag('edit_10.png'), edit_report_template_path(report_template) %>
+             <%= link_to image_tag('delete_10.png'), report_template, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<br />
+
+<%= link_to 'New Report template', new_report_template_path %>

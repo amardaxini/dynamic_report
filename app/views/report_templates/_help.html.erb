@@ -1,0 +1,114 @@
+
+<% content_for :head do %>
+    <style type="text/css">
+        TABLE {
+            padding: 5px;
+        }
+        TH {
+            padding-top: 10px;
+        }
+        TD {
+            border-top: solid 1px #eee;
+            padding: 6px;
+        }
+        H4 {
+            color: #999;
+            background-color: #fee;
+            border: solid 1px #caa;
+            margin: 10px 15px 5px 10px;
+            padding: 5px;
+        }
+        P {
+            margin: 2px 5px 2px 5px;
+        }
+        TD.example1{
+            background-color: #FFE;
+            font-size: 8pt;
+            padding: 5px;
+            padding: 5px;
+        }
+        TD.example3 {
+            border: solid 1px #DDD;
+            background-color: #EEE;
+            font-size: 8pt;
+            padding: 5px;
+        }
+        .big {
+            font-size: 12pt;
+        }
+        #big-red {
+            font-size: 12pt;
+            color: red;
+        }
+        #big-red2 {
+            font-size: 15pt;
+            color: red;
+        }
+    </style>
+<% end %>
+
+<h3><%= title "Liquid Help" %></h3>
+
+<table>
+  <tr>
+    <td class="example3"><strong>Project Details</strong></td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      <strong>Project Name: </strong> {{project.name}}
+    </td>
+  <tr>
+    <td class='example1'>
+      <strong>Project Description: </strong>{{project.description}}
+    </td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      <strong>Project Start Date: </strong>{{project.start_date}}
+    </td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      <strong>Project End Date: </strong>{{project.end_date}}
+    </td>
+  </tr>
+  <tr>
+    <td class="example3"><strong>Task Details</strong></td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      <strong>Task Listing: </strong> {{tasks | tasks_listing}}
+    </td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      <strong>Pending Task Listing: </strong></td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      {{pending_tasks | tasks_listing}}
+    </td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      <strong>Completed Task Listing: </strong>
+    </td>
+  </tr>
+  <tr>
+    <td class='example1'>
+      {{completed_tasks | tasks_listing}}
+    </td>
+  </tr>
+  <tr>
+    <td class="example3"><strong>Graph</strong></td>
+  </tr>
+  <td class='example1'>
+    <strong>Draw Task Status Graph</strong>
+  </td>
+  <tr>
+    <td class='example1'>
+      {{ draw_task_status_graph | draw_graph}}
+    </td>
+  </tr>
+</table>
+

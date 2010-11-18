@@ -1,0 +1,27 @@
+<% content_for :title do %>
+ Reports
+<% end %>
+<div>
+<% form_for(@report) do |f| %>
+<strong>Project:</strong><%=f.collection_select :project_id,@projects,:id,:name %>
+<strong>Report Template</strong><%=f.collection_select :report_template_id,@report_templates,:id,:template_name %>
+ <%= f.submit "Submit" %>     
+<% end %>
+</div>
+<div class="listing">
+<table>
+  <tr>
+    <th>Report name</th>
+    <th width="30"></th>
+  </tr>
+
+<% @reports.each do |report| %>
+  <tr>
+    <td><%=link_to report.report_name,report_path(report) %></td>
+    <td><%= link_to image_tag('delete_10.png'), report, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+

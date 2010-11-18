@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Template name:</strong>
+  <%= @report_template.template_name %>
+</p>
+
+<p>
+  <strong>Template content:</strong>
+  <%= @report_template.template_content %>
+</p>
+
+
+<%= link_to 'Edit', edit_report_template_path(@report_template) %> |
+<%= link_to 'Back', report_templates_path %>

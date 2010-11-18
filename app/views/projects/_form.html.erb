@@ -1,0 +1,44 @@
+<%= form_for(@project,:html=>{:class=>'data-form'}) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%#= f.date_select :start_date %>
+    <%= f.text_field :start_date,:id=>'start_date' %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.text_field :start_date,:id=>'end_date' %>
+    <%#= f.date_select :end_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= content_for :javascripts do%>
+    <%= javascript_include_tag 'jquery-ui' %>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#start_date" ).datepicker();
+        $("#end_date" ).datepicker();
+    });
+    </script>
+<% end %>
