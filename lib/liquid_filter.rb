@@ -47,15 +47,5 @@ module LiquidFilter
     file.close
     content_tag(:img,'',:src=> file.path)
   end
-  ##
-#  def draw_status_graph(project)
-#    graph = project.draw_task_status_graph
-#    filename = "#{project.name}#{Time.now.strftime('%s')}.png"
-#    file = Tempfile.new(filename)
-#    file = file.binmode
-#    file.write(graph)
-#    file.close
-#    content_tag(:img,'',:src=> file.path)
-#  end
 
 end

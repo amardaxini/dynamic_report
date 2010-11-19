@@ -3,7 +3,7 @@
   
  1) bundle install
  2) Edit config/database.yml
- 3) Make sure java on path
+ 3) edit config/initializers/flying_saucer.rb
  4) rake db:create
  5) rake db:migrate
 
